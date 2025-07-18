@@ -38,37 +38,17 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    h1 {
       text-align: center;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
+    a.email-link {
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    label, input, textarea {
-      margin-bottom: 1em;
-    }
-
-    input, textarea {
-      padding: 0.5em;
-      font-size: 1em;
-    }
-
-    button {
-      padding: 0.7em;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background-color: #555;
+    a.email-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -84,18 +64,8 @@
 
   <div class="container">
     <h1>Contact Me</h1>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="Your name"/>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="Your email"/>
-
-      <label for="message">Message:</label>
-      <textarea id="message" rows="6" placeholder="Your message"></textarea>
-
-      <button type="submit">Send</button>
-    </form>
+    <p>Feel free to reach out via email:</p>
+    <p><a class="email-link" href="mailto:fordbrosjr@gmail.com">fordbrosjr@gmail.com</a></p>
   </div>
 </body>
 </html>
