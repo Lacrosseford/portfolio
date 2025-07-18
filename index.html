@@ -3,86 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mitch Ford - Home</title>
+  <title>My Portfolio</title>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #222;
-      color: white;
-      padding: 10px 20px;
-      position: relative;
-    }
-
-    nav .menu-toggle {
-      cursor: pointer;
-      font-size: 1.2em;
-      position: relative;
-    }
-
-    nav .dropdown {
-      display: none;
-      position: absolute;
-      top: 50px;
-      right: 20px;
+    /* Header bar */
+    .header {
       background-color: #333;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      z-index: 100;
-    }
-
-    nav .dropdown a {
-      display: block;
       color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-bottom: 1px solid #444;
+      padding: 16px;
+      position: relative;
     }
 
-    nav .dropdown a:hover {
+    /* Menu button */
+    .menu-toggle {
+      cursor: pointer;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    /* Dropdown container (initially hidden) */
+    .dropdown {
       background-color: #444;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
     }
 
-    nav:hover .dropdown {
+    /* Dropdown links */
+    .dropdown a {
       display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      border-top: 1px solid #555;
     }
 
-    header {
-      text-align: center;
-      padding: 50px 20px;
+    /* Hover effect on links */
+    .dropdown a:hover {
+      background-color: #555;
     }
 
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
+    /* Show dropdown */
+    .dropdown.show {
+      max-height: 200px; /* just enough space for a few links */
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div><strong>Mitch Ford</strong></div>
-    <div class="menu-toggle">☰ Menu
-      <div class="dropdown">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-      </div>
-    </div>
-  </nav>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <p>I'm Mitch, an architecture student and designer based in Boulder, CO.</p>
-  </header>
+  <!-- Header with menu -->
+  <div class="header">
+    <span class="menu-toggle">☰ Menu</span>
+
+    <!-- Dropdown menu -->
+    <div class="dropdown" id="dropdown">
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+    </div>
+  </div>
+
+  <!-- Optional page content -->
+  <div style="padding: 20px;">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Select a page from the menu above to learn more.</p>
+  </div>
+
+  <!-- Script to toggle dropdown on hover -->
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const dropdown = document.getElementById('dropdown');
+
+    toggle.addEventListener('mouseenter', () => {
+      dropdown.classList.add('show');
+    });
+
+    document.querySelector('.header').addEventListener('mouseleave', () => {
+      dropdown.classList.remove('show');
+    });
+  </script>
+
 </body>
 </html>
